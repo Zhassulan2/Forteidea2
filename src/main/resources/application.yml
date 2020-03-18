@@ -1,0 +1,52 @@
+# EMBEDDED SERVER CONFIG
+server:
+  port: 9292
+
+spring:
+  resources:
+    add-mappings: true
+    #static-locations: 'classpath:/static/'
+  datasource:
+    username: postgres
+    password: manage
+    url: jdbc:postgresql://localhost:5432/forte_idea
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql:  true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+# LDAP CONFIG
+com:
+  fortebank:
+    security:
+      ldap:
+        url: ldap://Headfortedc02.fortebank.com:389
+        manager-dn: CN=Integration,OU=Test,OU=IT,DC=Fortebank,DC=com
+        manager-password: '@omcJ%wG'
+        user-search-base: OU=USRS,DC=Fortebank,DC=com
+        user-search-filter: (&(objectClass=user)(sAMAccountName={0}))
+        group-search-base: OU=GRPS,DC=Fortebank,DC=com
+        group-role-attribute: cn
+        group-search-filter: (&(objectClass=group)(member={0}))
+        role-prefix: ROLE_
+
+      # SECURITY CONFIG
+      jwt:
+        # Authentication request header
+        request-header: Authorization
+        # JWT secret key
+        token-signing-key: higgsupweareone
+        # Token expiration time (in seconds)
+        token-exp-time: 3600
+        # Refresh Token expiration time (in seconds)
+        refresh-token-exp-time: 2592000
