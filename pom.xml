@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<jjwt.version>0.9.1</jjwt.version>
-		<guava.version>26.0-jre</guava.version>
+		<guava.version>29.0-jre</guava.version>
 		<apache-directory.api-util.version>1.0.2</apache-directory.api-util.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
